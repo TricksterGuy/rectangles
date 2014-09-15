@@ -14,7 +14,7 @@ Rectangle.o : Rectangle.cpp Rectangle.hpp
 RectangleSet.o : RectangleSet.cpp RectangleSet.hpp Rectangle.hpp Region.hpp
 	g++ -c $(CFLAGS) RectangleSet.cpp
 
-Rectangles : main.o Region.o Rectangle.o
+Rectangles : main.o Region.o Rectangle.o RectangleSet.o
 	g++ -o Rectangles main.o Region.o Rectangle.o RectangleSet.o -lsfml-graphics -lsfml-system -lsfml-window -L/usr/local/lib -I/usr/local/include
 
 clean :
