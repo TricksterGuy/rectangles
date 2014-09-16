@@ -40,6 +40,10 @@ int main()
                 {
                     mode = 0;
                 }
+                else if (event.key.code == sf::Keyboard::S)
+                {
+                    mode = 2;
+                }
             }
             else if (event.type == sf::Event::MouseButtonPressed)
             {
@@ -70,8 +74,10 @@ int main()
                     y = min(ya, y2);
                     if (mode == 0)
                         rectangles.add(Rectangle(x, y, width, height));
-                    else
+                    else if (mode == 1)
                        rectangles.region.intersect(Rectangle(x, y, width, height));
+                    else if (mode == 2)
+                       rectangles.region.subtract(Rectangle(x, y, width, height));
                     printf("%d\n", rectangles.size());
                     valid = false;
                 }
